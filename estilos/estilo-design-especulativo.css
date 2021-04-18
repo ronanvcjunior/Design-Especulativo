@@ -1,0 +1,63 @@
+#televisao {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    height: 100%;
+    background-color: grey;
+}
+
+
+#tv {
+    position: relative;
+    max-width: 666px;
+    margin: 20px;
+    width: 100%;
+    transform-style: preserve-3d;
+    transition: 8s;
+    transform: perspective(1000px);
+}
+
+#televisao:hover #tv{
+    transform: perspective(1000px) rotatey(180deg);
+}
+
+.superior {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background: url(imagens/aco2.jpg);
+}
+
+.monitor {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(100px);
+}
+
+#monitor5,
+#monitor6 {
+    background: url(imagens/aco3.jpg);
+}
+
+
+.inferior {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 0,  255, 0.1);
+    background: url(imagens/madeira.jpg);
+}

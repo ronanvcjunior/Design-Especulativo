@@ -2,25 +2,50 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
     min-height: 100vh;
     height: 100%;
-    background-color: grey;
+    background-color: aliceblue;
 }
 
+#rotateLeft,
+#rotateRight {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.2);
+    width: 66px;
+    height: 66px;
+    cursor: pointer;
+    font-size: 4rem;
+}
+
+#rotateLeft:hover,
+#rotateRight:hover {
+    background: rgba(0, 0, 0, 0.6);
+}
+
+#rotateLeft {
+    margin-left: 10px;
+}
+
+#rotateRight {
+    margin-right: 10px;
+}
 
 #tv {
     position: relative;
     max-width: 666px;
-    margin: 20px;
     width: 100%;
     transform-style: preserve-3d;
-    transition: 8s;
+    transition: 0s;
+    -moz-transition: 2s;
     transform: perspective(1000px);
 }
 
-#televisao:hover #tv{
-    transform: perspective(1000px) rotatey(180deg);
-}
+/*#televisao:hover #tv{
+    transform: perspective(1000px) rotatey(360deg);
+} */
 
 .superior {
     display: flex;
@@ -31,6 +56,23 @@
     left: 50%;
     transform: translateX(-50%);
     background: url(imagens/aco2.jpg);
+}
+
+#superior4::before {
+    content: '';
+    background: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+}
+
+#superior1::before,
+#superior3::before,
+#superior5::before,
+#superior6::before {
+    content: '';
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5));
+    width: 100%;
+    height: 100%;
 }
 
 .monitor {
@@ -60,4 +102,14 @@
     transform: translateX(-50%);
     background: rgba(255, 0,  255, 0.1);
     background: url(imagens/madeira.jpg);
+}
+
+#inferior1::before,
+#inferior3::before,
+#inferior5::before,
+#inferior6::before {
+    content: '';
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5));
+    width: 100%;
+    height: 100%;
 }

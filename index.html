@@ -15,8 +15,8 @@
 </head>
 <body  onresize="larguraTela()">
     <section id="televisao">
+        <i class="fas fa-caret-left" id="rotateLeft" onclick="rotacionar('esquerda')"></i>
         <div id="tv">
-            
             <div class="superior" id="superior1"></div>
             <div class="superior" id="superior2"></div>
             <div class="superior" id="superior3"></div>
@@ -38,6 +38,7 @@
             <div class="inferior" id="inferior5"></div>
             <div class="inferior" id="inferior6"></div>
         </div>
+        <i class="fas fa-caret-right" id="rotateRight" onclick="rotacionar('direita')"></i>
     </section>
 
     <!-- Load Babel -->

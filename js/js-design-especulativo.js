@@ -4,6 +4,8 @@ function larguraTela() {
 
     var alturaTelevisao = (larguraTelevisao * 0.695).toString()
     document.getElementById('tv').style.height = alturaTelevisao + 'px'
+    document.getElementById('rotateLeft').style.height = alturaTelevisao + 'px'
+    document.getElementById('rotateRight').style.height = alturaTelevisao + 'px'
 
     // Superior
     var m = 0
@@ -122,6 +124,11 @@ function larguraTela() {
 
             var z = ((- larguraTelevisao * 0.222) + larguraTelevisao * 0.833 / 2).toString()
             document.getElementById(id).style.transform = 'rotateY(90deg) translateZ('+ z +'px) translateZ(' + zInferior + 'px)'
+        } else if (cont === 4) {
+            document.getElementById(id).style.transform = 'rotateX(' + rotationX + 'deg) translateX(-50%) translateZ(' + zInferior + 'px)'
+
+            var sombraInferior = alturaInferior * 0.2
+            document.getElementById(id).style.boxShadow = '0px 0px 50px ' + sombraInferior +'px rgba(0, 0, 0, 0.5)'
         } else {
             document.getElementById(id).style.transform = 'rotateX(' + rotationX + 'deg) translateX(-50%) translateZ(' + zInferior + 'px)'
         }
@@ -170,4 +177,18 @@ const draw = () => {
 }
 
 setInterval(draw, 30)
+}
+
+var eixo = 0
+
+function rotacionar(direcao) {
+    var tv = document.getElementById('tv')
+
+    if (direcao === 'esquerda') {
+        eixo += 60
+        tv.style.transform = `perspective(1000px) rotatey(${eixo}deg)`
+    } else if (direcao === 'direita') {
+        eixo -= 60
+        tv.style.transform = `perspective(1000px) rotatey(${eixo}deg)`
+    }
 }

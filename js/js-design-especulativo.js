@@ -136,6 +136,146 @@ function larguraTela() {
         m = m + 90
     }
     
+    // Background
+    for(let i = 1; i <= 13; i++) {
+        if (i < 5) {
+            var trianguloPosicao =  i % 4
+        }else if (i == 7 || i > 12) {
+            trianguloPosicao = 3
+        } else {
+            trianguloPosicao = 1
+        }
+
+        let widthBG = document.getElementById('background').offsetWidth
+        let heightBG = document.getElementById('background').offsetHeight
+        let idTriangulo = `triangulo${i}`
+        let triangulo = document.getElementById(idTriangulo)
+        
+        if (trianguloPosicao === 1) {
+            triangulo.style.borderBottomWidth = `${heightBG * 0.5}px`
+            triangulo.style.borderRightWidth = `${widthBG * 0.5}px`
+            triangulo.style.borderLeftWidth = `${widthBG * 0.5}px`
+
+            if (idTriangulo === 'triangulo1') {
+                triangulo.style.bottom = `0px`
+                triangulo.style.left = `0px`
+            }
+
+            if (idTriangulo === 'triangulo5') {
+                triangulo.style.borderBottomWidth = `${heightBG}px`
+                triangulo.style.bottom = `0px`
+                triangulo.style.left = `${widthBG * 0.5}px`
+
+                triangulo.style.animation = 'moveR 20s alternate infinite'
+            }
+
+            if (idTriangulo === 'triangulo6') {
+                triangulo.style.borderBottomWidth = `${heightBG}px`
+                triangulo.style.bottom = `0px`
+                triangulo.style.left = `0px`
+
+                triangulo.style.animation = 'moveT 20s alternate infinite'
+            }
+
+            if (idTriangulo === 'triangulo8') {
+                triangulo.style.borderBottomWidth = `${heightBG * 0.5}px`
+                triangulo.style.borderRightWidth = `${widthBG * 0.25}px`
+                triangulo.style.borderLeftWidth = `${widthBG * 0.25}px`
+                triangulo.style.bottom = `${heightBG * 0.25}px`
+                triangulo.style.left = `${widthBG * 0.125}px`
+
+                triangulo.style.animation = 'moveB 20s alternate infinite'
+            }
+
+            if (idTriangulo === 'triangulo9') {
+                triangulo.style.borderBottomWidth = `${heightBG}px`
+                triangulo.style.bottom = `0px`
+                triangulo.style.left = `${- widthBG * 0.5}px`
+
+                triangulo.style.animation = 'moveT 10s alternate infinite'
+            }
+
+            if (idTriangulo === 'triangulo10') {
+                triangulo.style.borderBottomWidth = `${heightBG * 0.5}px`
+                triangulo.style.borderRightWidth = `${widthBG * 0.25}px`
+                triangulo.style.borderLeftWidth = `${widthBG * 0.25}px`
+                triangulo.style.bottom = `${heightBG * 0.75}px`
+                triangulo.style.left = `${widthBG * 0.5}px`
+
+                triangulo.style.animation = 'moveL 20s alternate infinite'
+            }
+
+            if (idTriangulo === 'triangulo11') {
+                triangulo.style.borderBottomWidth = `${heightBG * 0.5}px`
+                triangulo.style.borderRightWidth = `${widthBG * 0.25}px`
+                triangulo.style.borderLeftWidth = `${widthBG * 0.25}px`
+                triangulo.style.bottom = `${heightBG * 0.25}px`
+                triangulo.style.left = `${widthBG * 0.375}px`
+
+                triangulo.style.animation = 'moveR 10s alternate infinite'
+            }
+
+            if (idTriangulo === 'triangulo12') {
+                triangulo.style.borderBottomWidth = `${heightBG * 0.5}px`
+                triangulo.style.borderRightWidth = `${widthBG * 0.25}px`
+                triangulo.style.borderLeftWidth = `${widthBG * 0.25}px`
+                triangulo.style.bottom = `${heightBG * 0.75}px`
+                triangulo.style.left = `${widthBG * 0}px`
+
+                triangulo.style.animation = 'moveR 20s alternate infinite'
+            }
+
+        } else if (trianguloPosicao === 2) {
+            triangulo.style.borderLeftWidth = `${widthBG * 0.5}px`
+            triangulo.style.borderBottomWidth = `${heightBG * 0.5}px`
+            triangulo.style.borderTopWidth = `${heightBG * 0.5}px`
+
+            if (idTriangulo === 'triangulo2') {
+                triangulo.style.left = `0px`
+                triangulo.style.top = `0px`
+            }
+
+        } else if (trianguloPosicao === 3) {
+            triangulo.style.borderTopWidth = `${heightBG * 0.5}px`
+            triangulo.style.borderRightWidth = `${widthBG * 0.5}px`
+            triangulo.style.borderLeftWidth = `${widthBG * 0.5}px`
+
+            if (idTriangulo === 'triangulo3') {
+                triangulo.style.top = `0px`
+                triangulo.style.left = `0px`
+            }
+
+            if (idTriangulo === 'triangulo7') {
+                triangulo.style.borderTopWidth = `${heightBG}px`
+                triangulo.style.borderRightWidth = `${widthBG * 0.5}px`
+                triangulo.style.borderLeftWidth = `${widthBG * 0.5}px`
+                triangulo.style.top = `px`
+                triangulo.style.left = `${widthBG * 0.25}px`
+
+                triangulo.style.animation = 'moveL 10s alternate infinite'
+            }
+
+            if (idTriangulo === 'triangulo13') {
+                triangulo.style.borderTopWidth = `${heightBG}px`
+                triangulo.style.borderRightWidth = `${widthBG * 0.5}px`
+                triangulo.style.borderLeftWidth = `${widthBG * 0.5}px`
+                triangulo.style.top = `px`
+                triangulo.style.left = `${- widthBG * 0.25}px`
+
+                triangulo.style.animation = 'moveB 20s alternate infinite'
+            }
+
+        } else if (trianguloPosicao === 0) {
+            triangulo.style.borderRightWidth = `${widthBG * 0.5}px`
+            triangulo.style.borderBottomWidth = `${heightBG * 0.5}px`
+            triangulo.style.borderTopWidth = `${heightBG * 0.5}px`
+
+            if (idTriangulo === 'triangulo4') {
+                triangulo.style.right = `0px`
+                triangulo.style.top = `0px`
+            }
+        }
+    }
 }
 
 larguraTela()
@@ -185,10 +325,10 @@ function rotacionar(direcao) {
     var tv = document.getElementById('tv')
 
     if (direcao === 'esquerda') {
-        eixo += 60
+        eixo -= 30
         tv.style.transform = `perspective(1000px) rotatey(${eixo}deg)`
     } else if (direcao === 'direita') {
-        eixo -= 60
+        eixo += 30
         tv.style.transform = `perspective(1000px) rotatey(${eixo}deg)`
     }
 }

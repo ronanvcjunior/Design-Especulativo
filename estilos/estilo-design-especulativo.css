@@ -318,7 +318,6 @@ img {
     padding-bottom: 20px;
 
     grid-auto-columns: 1fr;
-    grid-auto-rows: 50%;
 
 }
 
@@ -336,7 +335,7 @@ img {
 
 #container .card .cardConteudo {
     width: 90%;
-    margin-top: 20px;
+    margin-top: 10px;
     text-align: center;
 
     grid-column-start: 1;

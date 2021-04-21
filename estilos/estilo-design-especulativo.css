@@ -10,10 +10,6 @@ img {
     scroll-snap-type: y mandatory;
 }
 
-.contenner section {
-    scroll-snap-align: start;
-}
-
 #background {
     position: fixed;
     width: 100%;
@@ -97,8 +93,8 @@ img {
     align-items: center;
     justify-content: center;
     position: relative;
-    min-height: 100vh;
-    height: 100%;
+    max-height: 100%;
+    margin: 5rem 0;
 }
 
 #rotateLeft,
@@ -234,11 +230,10 @@ img {
 
 #cenario #cenarioBack {
     background: rgba(0, 0, 0, 0.2);
-    width: 90%;
-    height: 90%;
+    width: 95%;
+    height: 95%;
     border-radius: 20px;
     display: grid;
-    padding: 32px;
 
     grid-template-columns: repeat(8, 1fr);
     grid-auto-rows: 50%;
@@ -248,10 +243,10 @@ img {
     background: url(../imagens/city.jpg);
     background-position: center;
     background-size: cover;
-    border-radius: 20px;
     z-index: 10;
+    border-radius: 20px;
     border-bottom-left-radius: 0;
-    border-bottom-Right-radius: 0;
+    border-bottom-right-radius: 0;
 
     grid-column-start: 1;
     grid-column-end: 9;
@@ -259,12 +254,13 @@ img {
 }
 
 #cenario #cenarioBack #conteudo {
-    background: rgba(0, 0, 0, 0.2);
     padding: 16px;
     z-index: 0;
     border-radius: 20px;
+    display: flex;
+    flex-direction: column;
     border-Top-left-radius: 0;
-    border-Top-Right-radius: 0;Top
+    border-Top-Right-radius: 0;
 
     grid-column-start: 1;
     grid-column-end: 9;
@@ -279,96 +275,144 @@ img {
 }
 
 #cenario #cenarioBack #conteudo p {
-    text-align: justify;
+    text-align: center;
+    align-self: center;
 }
 
 #container {
+    margin-top: 3rem;
+    margin-bottom: 1rem;
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     position: relative;
     display: grid;
     align-items: center;
     justify-content: center;
-    gap: 32px;
+    gap: 4rem;
 
-    grid: 
-    'card1 card2 card3'
+    grid:
+        'card1'
+        'card2'
+        'card3'
     ;
 }
 
 #container .card {
-    background: rgba(0, 0, 0, 0.2);
     position: relative;
+    background: rgba(0, 0, 0, 0.2);
+    max-width: 360px;
+    padding-bottom: 40px;
+    display: grid;
+    justify-items: center;
     border-radius: 20px;
-    max-width: 400px;
-    height: 215px;
-    margin: 30px 10px;
-    padding: 20px 15px;
-    display: flex;
-    flex-direction: column;
-    transition: 0.5s ease-in-out;
-}
+    padding-bottom: 20px;
 
-#container .card:hover {
-    height: 440px;
+    grid-auto-columns: 1fr;
+    grid-auto-rows: 50%;
+
 }
 
 #container .card .img {
-    position: relative;
-    width: 360px;
-    height: 360px;
-    top: -60px;
-    left: 5px;
-    z-index: 1;
-}
-
-#container .card .img img {
+    width: 90%;
+    margin-top: -40px;
+    z-index: 10;
     border-radius: 20px;
+
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 1;
+    grid-row-end: 1;
 }
 
 #container .card .cardConteudo {
-    position: relative;
-    margin-top: -140px;
-    padding: 10px 15px;
+    width: 90%;
+    margin-top: 20px;
     text-align: center;
-    visibility: hidden;
-    opacity: 0;
-    transition: 0.5s ease-in-out;
-}
 
-#container .card:hover .cardConteudo {
-    visibility: visible;
-    opacity: 1;
-    margin-top: -100px;
-}
-
-#container .card h2 {
-    text-align: center;
+    grid-column-start: 1;
+    grid-column-end: 1;
+    grid-row-start: 2;
+    grid-row-end: 2;
 }
 
 #container #card1 {
     grid-area: card1;
+    justify-self: center;
 }
 
 #container #card2 {
     grid-area: card2;
+    justify-self: center;
 }
 
 #container #card3 {
     grid-area: card3;
+    justify-self: center;
 }
 
 @media (min-width: 576px) {
-    #cenario #cenarioBack #imagem {
-        grid-column-start: 1;
-        grid-column-end: 9;
-        grid-row-start: 1;
+    #cenario #cenarioBack {
+        width: 90%;
+        height: 90%;
     }
 
-    #cenario #cenarioBack #conteudo {
-        grid-column-start: 1;
-        grid-column-end: 9;
+    #container .card {
+        width: 100%;
+
+    }
+}
+
+@media (min-width: 768px) {
+    .contenner section{
+        scroll-snap-align: start;
+    }
+
+    #televisao {
+        height: 100%;
+        margin: 0;
+    }
+
+    #container {
+        margin-top: 0rem;
+        margin-bottom: 0rem;
+        height: 100vh;
+        gap: 2rem;
+
+        grid:
+            'card1 card3'
+            'card2 card2'
+        ;
+    }
+
+    #container .card {
+        width: 300px;
+        padding-bottom: 0px;
+        margin-bottom: 0px;
+
+    }
+
+    #container .card .cardConteudo {
+        visibility: hidden;
+
+        grid-row-start: 1;
+        grid-row-end: 2;
+    }
+
+    #container .card:hover {
+        padding-bottom: 40px;
+    }
+
+    #container .card:hover .img {
+        grid-row-start: 1;
+        grid-row-end: 1;
+    }
+
+    #container .card:hover .cardConteudo {
+        margin-top: 0px;
+        visibility: visible;
+
         grid-row-start: 2;
+        grid-row-end: 2;
     }
 }
 
@@ -378,12 +422,17 @@ img {
     }
 
     #cenario #cenarioBack #imagem {
+        border-bottom-right-radius: 20px;
+        border-bottom-left-radius: 20px;
+
         grid-column-start: 1;
         grid-column-end: 9;
         grid-row-start: 1;
     }
 
     #cenario #cenarioBack #conteudo {
+        border-top-right-radius: 20px;
+        
         grid-column-start: 6;
         grid-column-end: 9;
         grid-row-start: 1;
@@ -405,5 +454,35 @@ img {
         grid-column-start: 5;
         grid-column-end: 9;
         grid-row-start: 1;
+    }
+
+    #container {
+        grid:
+            'card1 card2 card3'
+        ;
+    }
+}
+
+@media (min-width: 1200px) {
+    #container .card {
+        width: 360px;
+        padding-bottom: 40px;
+
+    }
+
+    #container .card:hover .cardConteudo {
+        margin-top: 20px;
+    }
+}
+
+@media (min-width: 1400px) {
+
+    #container .card {
+        width: 400px;
+
+    }
+
+    #container .card:hover .cardConteudo {
+        margin-top: 40px;
     }
 }

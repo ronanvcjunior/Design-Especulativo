@@ -203,6 +203,10 @@ img {
     fill: rgba(0, 0, 0, 0.2);
 }
 
+#monitor1:hover #play .playCor {
+    fill: rgba(0, 0, 0, 0.5);
+}
+
 .inferior {
     display: flex;
     justify-content: center;

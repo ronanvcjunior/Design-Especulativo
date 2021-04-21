@@ -294,20 +294,7 @@ var ligarMonitor = () => {
     canal++
     console.log(canal);
 
-    var pai = document.getElementById('tv')
-    for(var i = 1; i <=3; i = i + 2) {
-        var monitor = document.getElementById(`monitor${i}`)
-        monitor.remove()
-
-        var newMonitor = document.createElement('canvas')
-        pai.appendChild(newMonitor)
-
-        newMonitor.classList.add('monitor')
-        newMonitor.setAttribute('ID', `monitor${i}`)
-        newMonitor.setAttribute('onclick', `ligarTV()`)
-
-        larguraTela()
-    }
+    gerarTV()
     
     if (canal === 1) {
         for (var i = 1; i <= 3; i = i + 2) {
@@ -367,6 +354,27 @@ var ligarMonitor = () => {
 
 function ligarTV() {
     setTimeout(ligarMonitor, 100)
+}
+
+function gerarTV() {
+    var pai = document.getElementById('tv')
+    for(var i = 1; i <=3; i = i + 2) {
+        var monitor = document.getElementById(`monitor${i}`)
+        monitor.remove()
+
+        var newMonitor = document.createElement('canvas')
+        pai.appendChild(newMonitor)
+
+        newMonitor.classList.add('monitor')
+        newMonitor.setAttribute('ID', `monitor${i}`)
+        newMonitor.setAttribute('onclick', `ligarTV()`)
+
+        larguraTela()
+    }
+}
+
+function play() {
+    ligarTV()
 }
 
 var eixo = 0

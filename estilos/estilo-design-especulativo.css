@@ -194,9 +194,13 @@ img {
     cursor: pointer;
 }
 
-#monitor1 #playCor1 {
+#monitor1 #play {
     width: 50%;
     height: 50%;
+}
+
+#monitor1 #play .playCor {
+    fill: rgba(0, 0, 0, 0.2);
 }
 
 .inferior {
@@ -222,7 +226,7 @@ img {
 }
 
 #cenario {
-    height: 100vh;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -236,7 +240,7 @@ img {
     display: grid;
 
     grid-template-columns: repeat(8, 1fr);
-    grid-auto-rows: 50%;
+    grid-auto-rows: 1fr;
 }
 
 #cenario #cenarioBack #imagem {
@@ -254,7 +258,9 @@ img {
 }
 
 #cenario #cenarioBack #conteudo {
+    width: 100%;
     padding: 16px;
+    margin: 0 auto;
     z-index: 0;
     border-radius: 20px;
     display: flex;
@@ -271,12 +277,11 @@ img {
     color: linear-gradient(white, #38495a);
     text-align: center;
     font-size: 2rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
 
 #cenario #cenarioBack #conteudo p {
-    text-align: center;
-    align-self: center;
+    text-align: justify;
 }
 
 #container {
@@ -301,6 +306,7 @@ img {
     position: relative;
     background: rgba(0, 0, 0, 0.2);
     max-width: 360px;
+    width: 95%;
     padding-bottom: 40px;
     display: grid;
     justify-items: center;
@@ -420,6 +426,7 @@ img {
     #cenario #cenarioBack {
         grid-auto-rows: 100%;
     }
+    
 
     #cenario #cenarioBack #imagem {
         border-bottom-right-radius: 20px;
@@ -431,7 +438,9 @@ img {
     }
 
     #cenario #cenarioBack #conteudo {
+        width: 90%;
         border-top-right-radius: 20px;
+        justify-content: center;
         
         grid-column-start: 6;
         grid-column-end: 9;
@@ -464,6 +473,16 @@ img {
 }
 
 @media (min-width: 1200px) {
+    #cenario #cenarioBack:hover #imagem {
+       grid-column-start: 1;
+        grid-column-end: 6;
+    }
+
+    #cenario #cenarioBack:hover #conteudo {
+        grid-column-start: 6;
+        grid-column-end: 9;
+    }
+
     #container .card {
         width: 360px;
         padding-bottom: 40px;
@@ -483,6 +502,6 @@ img {
     }
 
     #container .card:hover .cardConteudo {
-        margin-top: 40px;
+        margin-top: 30px;
     }
 }

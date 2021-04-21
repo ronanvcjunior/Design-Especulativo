@@ -40,6 +40,13 @@ function larguraTela() {
             document.getElementById(id).style.transform = 'rotateX(' + rotationX + 'deg) translateX(-50%) translateZ(' + zSuperior + 'px)'
         }
 
+        //Logo
+        let logoTV = document.getElementById('logoTV')
+        logoTV.style.height = `${larguraTelevisao * 0.0833 * 0.5}px`
+
+        let logoTV2 = document.getElementById('logoTV2')
+        logoTV2.style.height = `${larguraTelevisao * 0.0833 * 0.5}px`
+
         m = m + 90
     }
 
@@ -62,6 +69,7 @@ function larguraTela() {
         if (cont === 3) {
             zMonitor = (alturaMonitor * 0.025).toString()
             document.getElementById(id).style.transform = 'rotateY(' + rotationX + 'deg) translateX(50%) translateZ(' + zMonitor + 'px)'
+            document.getElementById(id).style.background = 'rgba(0, 0, 0, 0.05)'
 
         } else if (cont === 2) {
             alturaMonitor = (alturaMonitor * 0.05).toString()
@@ -90,6 +98,7 @@ function larguraTela() {
         } else if (cont === 1) {
             zMonitor = (alturaMonitor * 0.025).toString()
             document.getElementById(id).style.transform = 'rotateX(' + rotationX + 'deg) translateX(-50%) translateZ(' + zMonitor + 'px)'
+            document.getElementById(id).style.background = 'rgba(0, 0, 0, 0.05)'
         }
 
         m = m + 90
@@ -280,50 +289,91 @@ function larguraTela() {
 
 larguraTela()
 
-for (var i = 1; i <= 3; i = i + 2) {
-    let canvas = document.getElementById(`monitor${i}`)
+var canal = 0
+var ligarMonitor = () => {
+    canal++
+    console.log(canal);
 
-let ctx = canvas.getContext('2d')
-let width = canvas.width = window.innerWidth
-let height = canvas.height = window.innerHeight
+    var pai = document.getElementById('tv')
+    for(var i = 1; i <=3; i = i + 2) {
+        var monitor = document.getElementById(`monitor${i}`)
+        monitor.remove()
+
+        var newMonitor = document.createElement('canvas')
+        pai.appendChild(newMonitor)
+
+        newMonitor.classList.add('monitor')
+        newMonitor.setAttribute('ID', `monitor${i}`)
+        newMonitor.setAttribute('onclick', `ligarTV()`)
+
+        larguraTela()
+    }
+    
+    if (canal === 1) {
+        for (var i = 1; i <= 3; i = i + 2) {
+            let canvas = document.getElementById(`monitor${i}`)
+
+            let ctx = canvas.getContext('2d')
+            let width = canvas.width = window.innerWidth
+            let height = canvas.height = window.innerHeight
 
 
 
-let str = 'デジモンアグモングレイモンメタルグレイモンウォーグレイモン'
-let matrix = str.split('')
-let font = 12
-let col = width / font
-let arr = []
+            let str = 'デジモンアグモングレイモンメタルグレイモンウォーグレイモン'
+            let matrix = str.split('')
+            let font = 12
+            let col = width / font
+            let arr = []
 
-for(let i = 0; i < col; i++) {
-    arr[i] = 1
-}
+            for(let i = 0; i < col; i++) {
+                arr[i] = 1
+            }
 
-const draw = () => {
-    ctx.fillStyle = 'rgba(0, 0, 0, 0.05)'
-    ctx.fillRect(0, 0, width, height)
-    ctx.fillStyle = '#0f0'
-    ctx.font = `${font}px system-ui`
+            var draw = () => {
+                ctx.fillStyle = 'rgba(0, 0, 0, 0.05)'
+                ctx.fillRect(0, 0, width, height)
+                ctx.fillStyle = '#0f0'
+                ctx.font = `${font}px system-ui`
 
-    for(let i = 0; i < arr.length; i++) {
-        let txt = matrix[Math.floor(Math.random() *matrix.length)]
-        ctx.fillText(txt, i * font, arr[i] * font)
+                for(let i = 0; i < arr.length; i++) {
+                    let txt = matrix[Math.floor(Math.random() *matrix.length)]
+                    ctx.fillText(txt, i * font, arr[i] * font)
 
-        if(arr[i] * font > height && Math.random() > 0.975) {
-            arr[i] = 0
+                    if(arr[i] * font > height && Math.random() > 0.975) {
+                        arr[i] = 0
+                    }
+                    arr[i]++
+                }
+            }
+
+            setInterval(draw, 30)
         }
-        arr[i]++
+    } else {
+        canal = 0
+    }
+
+    if (canal === 0 || canal > 1) {
+        for(let i = 1; i <= 2; i++) {
+            let logoTVCor = document.getElementById(`logoTVCor${i}`)
+            logoTVCor.style.fill = '#000000'
+        }
+    } else {
+        for(let i = 1; i <= 2; i++) {
+            let logoTVCor = document.getElementById(`logoTVCor${i}`)
+            logoTVCor.style.fill = '#0000ff'
+        }
     }
 }
 
-setInterval(draw, 30)
+function ligarTV() {
+    setTimeout(ligarMonitor, 100)
 }
 
 var eixo = 0
 
 function rotacionar(direcao) {
     var tv = document.getElementById('tv')
-
+    tv.style.transformStyle = 'preserve-3d'
     if (direcao === 'esquerda') {
         eixo -= 30
         tv.style.transform = `perspective(1000px) rotatey(${eixo}deg)`

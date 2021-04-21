@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="estilos/estilo-design-especulativo.css">
 </head>
 <body  onresize="larguraTela()">
-    <section id="background">
+    <div id="background">
         <div class="triangulo trianguloBottom" id="triangulo1"></div>
         <div class="triangulo trianguloLeft" id="triangulo2"></div>
         <div class="triangulo trianguloTop" id="triangulo3"></div>
@@ -28,36 +28,128 @@
         <div class="triangulo trianguloBottom" id="triangulo11"></div>
         <div class="triangulo trianguloBottom" id="triangulo12"></div>
         <div class="triangulo trianguloTop" id="triangulo13"></div>
-    </section>
+    </div>
 
-    <section id="televisao">
-        <i class="fas fa-caret-left" id="rotateLeft" onclick="rotacionar('esquerda')"></i>
-        <div id="tv">
-            <div class="superior" id="superior1"></div>
-            <div class="superior" id="superior2"></div>
-            <div class="superior" id="superior3"></div>
-            <div class="superior" id="superior4"></div>
-            <div class="superior" id="superior5"></div>
-            <div class="superior" id="superior6"></div>            
+    <div class="contenner">
+        <section id="televisao">
+            <i class="fas fa-caret-left" id="rotateLeft" onclick="rotacionar('esquerda')"></i>
+            <div id="tv">
+                <div class="superior" id="superior1">
+                    <svg id="logoTV" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                        viewBox="0 0 384 384" style="enable-background:new 0 0 384 384;" xml:space="preserve">
+                        <g>
+                            <g>
+                                <path id="logoTVCor1" d="M0,21.333l192,341.333L384,21.333H0z M72,64h240L192,277.333L72,64z"/>
+                            </g>
+                        </g>
+                        <g>
+                        </g>
+                        <g>
+                        </g>
+                        <g>
+                        </g>
+                        <g>
+                        </g>
+                        <g>
+                        </g>
+                        <g>
+                        </g>
+                        <g>
+                        </g>
+                        <g>
+                        </g>
+                        <g>
+                        </g>
+                        <g>
+                        </g>
+                        <g>
+                        </g>
+                        <g>
+                        </g>
+                        <g>
+                        </g>
+                        <g>
+                        </g>
+                        <g>
+                        </g>
+                    </svg>
+                </div>
+                <div class="superior" id="superior2"></div>
+                <div class="superior" id="superior3">
+                    <svg id="logoTV2" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                        viewBox="0 0 384 384" style="enable-background:new 0 0 384 384;" xml:space="preserve">
+                        <g>
+                            <g>
+                                <path id="logoTVCor2" d="M0,21.333l192,341.333L384,21.333H0z M72,64h240L192,277.333L72,64z"/>
+                            </g>
+                        </g>
+                        <g>
+                        </g>
+                        <g>
+                        </g>
+                        <g>
+                        </g>
+                        <g>
+                        </g>
+                        <g>
+                        </g>
+                        <g>
+                        </g>
+                        <g>
+                        </g>
+                        <g>
+                        </g>
+                        <g>
+                        </g>
+                        <g>
+                        </g>
+                        <g>
+                        </g>
+                        <g>
+                        </g>
+                        <g>
+                        </g>
+                        <g>
+                        </g>
+                        <g>
+                        </g>
+                    </svg>
+                </div>
+                <div class="superior" id="superior4"></div>
+                <div class="superior" id="superior5"></div>
+                <div class="superior" id="superior6"></div>            
 
-            <canvas class="monitor" id="monitor1"></canvas>
-            <div class="monitor" id="monitor2"></div>
-            <canvas class="monitor" id="monitor3"></canvas>
-            <div class="monitor" id="monitor4"></div>
-            <div class="monitor" id="monitor5"></div>
-            <div class="monitor" id="monitor6"></div>
+                <canvas class="monitor" id="monitor1" onclick="ligarTV()"></canvas>
+                <div class="monitor" id="monitor2"></div>
+                <canvas class="monitor" id="monitor3" onclick="ligarTV()"></canvas>
+                <div class="monitor" id="monitor4"></div>
+                <div class="monitor" id="monitor5"></div>
+                <div class="monitor" id="monitor6"></div>
 
-            <div class="inferior" id="inferior1"></div>
-            <div class="inferior" id="inferior2"></div>
-            <div class="inferior" id="inferior3"></div>
-            <div class="inferior" id="inferior4"></div>
-            <div class="inferior" id="inferior5"></div>
-            <div class="inferior" id="inferior6"></div>
-        </div>
-        <i class="fas fa-caret-right" id="rotateRight" onclick="rotacionar('direita')"></i>
-    </section>
+                <div class="inferior" id="inferior1"></div>
+                <div class="inferior" id="inferior2"></div>
+                <div class="inferior" id="inferior3"></div>
+                <div class="inferior" id="inferior4"></div>
+                <div class="inferior" id="inferior5"></div>
+                <div class="inferior" id="inferior6"></div>
+            </div>
+            <i class="fas fa-caret-right" id="rotateRight" onclick="rotacionar('direita')"></i>
+        </section>
 
-    <section></section>
+        <section id="cenario">
+            <div id="cenarioBack">
+                <div id="imagem">
+
+                </div>
+
+                <div id="conteudo">
+                    <h1>Cenário</h1>
+
+                    <p>O ano é 2041,</p>
+                </div>
+            </div>
+        </section>
+    </div>
 
     <!-- Load Babel -->
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>

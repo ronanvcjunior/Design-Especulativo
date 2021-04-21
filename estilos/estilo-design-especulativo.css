@@ -1,3 +1,19 @@
+img {
+    width: 100%;
+}
+
+.contenner {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: auto;
+    scroll-snap-type: y mandatory;
+}
+
+.contenner section {
+    scroll-snap-align: start;
+}
+
 #background {
     position: fixed;
     width: 100%;
@@ -115,7 +131,7 @@
     max-width: 666px;
     width: 100%;
     transform-style: preserve-3d;
-    transition: 0s;
+    transition: 2s;
     -moz-transition: 2s;
     transform: perspective(1000px);
 }
@@ -135,7 +151,6 @@
     background: url(imagens/aco2.jpg);
 }
 
-
 #superior4::before {
     content: '';
     background: rgba(0, 0, 0, 0.5);
@@ -152,6 +167,18 @@
     width: 100%;
     height: 100%;
 }
+
+#superior1 #logoTV,
+#superior3 #logoTV2 {
+    position: absolute;
+}
+
+#superior1 #logoTV #logoTVCor1,
+#superior3 #logoTV2 #logoTVCor2 {
+    fill: #000000;
+    transition: 0.5s;
+}
+
 .monitor {
     display: flex;
     justify-content: center;
@@ -159,8 +186,6 @@
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(100px);
 }
 
 #monitor5,
@@ -168,6 +193,15 @@
     background: url(imagens/aco3.jpg);
 }
 
+#monitor1,
+#monitor3 {
+    cursor: pointer;
+}
+
+#monitor1 #playCor1 {
+    width: 50%;
+    height: 50%;
+}
 
 .inferior {
     display: flex;
@@ -189,4 +223,187 @@
     background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5));
     width: 100%;
     height: 100%;
+}
+
+#cenario {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#cenario #cenarioBack {
+    background: rgba(0, 0, 0, 0.2);
+    width: 90%;
+    height: 90%;
+    border-radius: 20px;
+    display: grid;
+    padding: 32px;
+
+    grid-template-columns: repeat(8, 1fr);
+    grid-auto-rows: 50%;
+}
+
+#cenario #cenarioBack #imagem {
+    background: url(../imagens/city.jpg);
+    background-position: center;
+    background-size: cover;
+    border-radius: 20px;
+    z-index: 10;
+    border-bottom-left-radius: 0;
+    border-bottom-Right-radius: 0;
+
+    grid-column-start: 1;
+    grid-column-end: 9;
+    grid-row-start: 1;
+}
+
+#cenario #cenarioBack #conteudo {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 16px;
+    z-index: 0;
+    border-radius: 20px;
+    border-Top-left-radius: 0;
+    border-Top-Right-radius: 0;Top
+
+    grid-column-start: 1;
+    grid-column-end: 9;
+    grid-row-start: 2;
+}
+
+#cenario #cenarioBack #conteudo h1 {
+    color: linear-gradient(white, #38495a);
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+#cenario #cenarioBack #conteudo p {
+    text-align: justify;
+}
+
+#container {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    gap: 32px;
+
+    grid: 
+    'card1 card2 card3'
+    ;
+}
+
+#container .card {
+    background: rgba(0, 0, 0, 0.2);
+    position: relative;
+    border-radius: 20px;
+    max-width: 400px;
+    height: 215px;
+    margin: 30px 10px;
+    padding: 20px 15px;
+    display: flex;
+    flex-direction: column;
+    transition: 0.5s ease-in-out;
+}
+
+#container .card:hover {
+    height: 440px;
+}
+
+#container .card .img {
+    position: relative;
+    width: 360px;
+    height: 360px;
+    top: -60px;
+    left: 5px;
+    z-index: 1;
+}
+
+#container .card .img img {
+    border-radius: 20px;
+}
+
+#container .card .cardConteudo {
+    position: relative;
+    margin-top: -140px;
+    padding: 10px 15px;
+    text-align: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.5s ease-in-out;
+}
+
+#container .card:hover .cardConteudo {
+    visibility: visible;
+    opacity: 1;
+    margin-top: -100px;
+}
+
+#container .card h2 {
+    text-align: center;
+}
+
+#container #card1 {
+    grid-area: card1;
+}
+
+#container #card2 {
+    grid-area: card2;
+}
+
+#container #card3 {
+    grid-area: card3;
+}
+
+@media (min-width: 576px) {
+    #cenario #cenarioBack #imagem {
+        grid-column-start: 1;
+        grid-column-end: 9;
+        grid-row-start: 1;
+    }
+
+    #cenario #cenarioBack #conteudo {
+        grid-column-start: 1;
+        grid-column-end: 9;
+        grid-row-start: 2;
+    }
+}
+
+@media (min-width: 992px) {
+    #cenario #cenarioBack {
+        grid-auto-rows: 100%;
+    }
+
+    #cenario #cenarioBack #imagem {
+        grid-column-start: 1;
+        grid-column-end: 9;
+        grid-row-start: 1;
+    }
+
+    #cenario #cenarioBack #conteudo {
+        grid-column-start: 6;
+        grid-column-end: 9;
+        grid-row-start: 1;
+    }
+
+    #cenario #cenarioBack:hover #imagem {
+        border-top-right-radius: 0px;
+        border-bottom-right-radius: 0px;
+
+        grid-column-start: 1;
+        grid-column-end: 5;
+        grid-row-start: 1;
+    }
+
+    #cenario #cenarioBack:hover #conteudo {
+        border-bottom-left-radius: 0px;
+        border-top-left-radius: 0px;
+
+        grid-column-start: 5;
+        grid-column-end: 9;
+        grid-row-start: 1;
+    }
 }
